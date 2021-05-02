@@ -1,0 +1,160 @@
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+
+
+from pessoa import Pessoa
+from cadastro import Cadastro
+
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(640, 687)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.botao_cadastrar = QtWidgets.QPushButton(self.centralwidget)
+        self.botao_cadastrar.setGeometry(QtCore.QRect(290, 270, 75, 23))
+        self.botao_cadastrar.setObjectName("botao_cadastrar")
+        self.label_nome = QtWidgets.QLabel(self.centralwidget)
+        self.label_nome.setGeometry(QtCore.QRect(180, 100, 61, 20))
+        self.label_nome.setObjectName("label_nome")
+        self.edit_nome_cad = QtWidgets.QLineEdit(self.centralwidget)
+        self.edit_nome_cad.setGeometry(QtCore.QRect(240, 100, 181, 20))
+        self.edit_nome_cad.setObjectName("edit_nome_cad")
+        self.label_cadastrar = QtWidgets.QLabel(self.centralwidget)
+        self.label_cadastrar.setGeometry(QtCore.QRect(270, 10, 171, 61))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(10)
+        sizePolicy.setVerticalStretch(19)
+        sizePolicy.setHeightForWidth(self.label_cadastrar.sizePolicy().hasHeightForWidth())
+        self.label_cadastrar.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        self.label_cadastrar.setFont(font)
+        self.label_cadastrar.setObjectName("label_cadastrar")
+        self.label_endereco = QtWidgets.QLabel(self.centralwidget)
+        self.label_endereco.setGeometry(QtCore.QRect(160, 130, 71, 31))
+        self.label_endereco.setObjectName("label_endereco")
+        self.edit_endereco_cad = QtWidgets.QLineEdit(self.centralwidget)
+        self.edit_endereco_cad.setGeometry(QtCore.QRect(240, 140, 181, 20))
+        self.edit_endereco_cad.setObjectName("edit_endereco_cad")
+        self.label_cpf = QtWidgets.QLabel(self.centralwidget)
+        self.label_cpf.setGeometry(QtCore.QRect(190, 180, 47, 13))
+        self.label_cpf.setObjectName("label_cpf")
+        self.edit_cpf_cad = QtWidgets.QLineEdit(self.centralwidget)
+        self.edit_cpf_cad.setGeometry(QtCore.QRect(240, 180, 181, 20))
+        self.edit_cpf_cad.setObjectName("edit_cpf_cad")
+        self.label_nascimento = QtWidgets.QLabel(self.centralwidget)
+        self.label_nascimento.setGeometry(QtCore.QRect(160, 220, 121, 20))
+        self.label_nascimento.setObjectName("label_nascimento")
+        self.edit_nascimento_cad = QtWidgets.QLineEdit(self.centralwidget)
+        self.edit_nascimento_cad.setGeometry(QtCore.QRect(240, 220, 181, 20))
+        self.edit_nascimento_cad.setObjectName("edit_nascimento_cad")
+        self.label_buscar = QtWidgets.QLabel(self.centralwidget)
+        self.label_buscar.setGeometry(QtCore.QRect(270, 370, 121, 61))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(10)
+        sizePolicy.setVerticalStretch(19)
+        sizePolicy.setHeightForWidth(self.label_buscar.sizePolicy().hasHeightForWidth())
+        self.label_buscar.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        self.label_buscar.setFont(font)
+        self.label_buscar.setObjectName("label_buscar")
+        self.botao_buscar = QtWidgets.QPushButton(self.centralwidget)
+        self.botao_buscar.setGeometry(QtCore.QRect(380, 450, 75, 23))
+        self.botao_buscar.setObjectName("botao_buscar")
+        self.label_cpf_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_cpf_2.setGeometry(QtCore.QRect(160, 450, 47, 13))
+        self.label_cpf_2.setObjectName("label_cpf_2")
+        self.label_nome_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_nome_2.setGeometry(QtCore.QRect(180, 523, 61, 20))
+        self.label_nome_2.setObjectName("label_nome_2")
+        self.label_endereco_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_endereco_2.setGeometry(QtCore.QRect(170, 560, 71, 16))
+        self.label_endereco_2.setObjectName("label_endereco_2")
+        self.edit_nascimento_busca = QtWidgets.QLineEdit(self.centralwidget)
+        self.edit_nascimento_busca.setEnabled(True)
+        self.edit_nascimento_busca.setGeometry(QtCore.QRect(240, 600, 181, 20))
+        self.edit_nascimento_busca.setObjectName("edit_nascimento_busca")
+        self.edit_endereco_busca = QtWidgets.QLineEdit(self.centralwidget)
+        self.edit_endereco_busca.setEnabled(True)
+        self.edit_endereco_busca.setGeometry(QtCore.QRect(240, 560, 181, 20))
+        self.edit_endereco_busca.setObjectName("edit_endereco_busca")
+        self.label_nascimento_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_nascimento_2.setGeometry(QtCore.QRect(160, 600, 111, 20))
+        self.label_nascimento_2.setObjectName("label_nascimento_2")
+        self.edit_nome_busca = QtWidgets.QLineEdit(self.centralwidget)
+        self.edit_nome_busca.setEnabled(True)
+        self.edit_nome_busca.setGeometry(QtCore.QRect(240, 520, 181, 20))
+        self.edit_nome_busca.setObjectName("edit_nome_busca")
+        self.edit_cpf_busca = QtWidgets.QLineEdit(self.centralwidget)
+        self.edit_cpf_busca.setGeometry(QtCore.QRect(190, 450, 181, 20))
+        self.edit_cpf_busca.setObjectName("edit_cpf_busca")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        #acrescimos abaixo
+        self.cadastro_dados = Cadastro()
+        self.botao_cadastrar.clicked.connect(self.metodo_botao_cadastrar)
+        self.botao_buscar.clicked.connect(self.metodo_botao_buscar)
+
+    def metodo_botao_cadastrar(self):
+        nome = self.edit_nome_cad.text()
+        cpf = self.edit_cpf_cad.text()
+        endereco = self.edit_endereco_cad.text()
+        nascimento = self.edit_nascimento_cad.text()
+        pessoa = Pessoa(nome, cpf, endereco, nascimento)
+        if nome!= '' and cpf!= '' and endereco!= '' and nascimento!= '':
+            if self.cadastro_dados.cadastrar(pessoa):
+                QMessageBox.information(None, None, 'Pessoa cadastrada')
+                self.edit_nome_cad.setText('')
+                self.edit_cpf_cad.setText('')
+                self.edit_endereco_cad.setText('')
+                self.edit_nascimento_cad.setText('')
+            else:
+                QMessageBox.information(None, None, 'Já existe uma pessoa cadastrada com esse CPF')
+        else:
+            QMessageBox.information(None, None, 'Preencha todos os campos')
+
+    def metodo_botao_buscar(self):
+        cpf = self.edit_cpf_busca.text()
+        pessoa = self.cadastro_dados.buscar(cpf)
+        if  pessoa != None:
+            self.edit_nome_busca.setText(pessoa.nome)
+            self.edit_endereco_busca.setText(pessoa.endereco)
+            self.edit_nascimento_busca.setText(pessoa.nascimento)
+        else:
+            QMessageBox.information(None, None, 'Nao existe uma pessoa cadastrada com esse CPF')
+
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.botao_cadastrar.setText(_translate("MainWindow", "Cadastrar"))
+        self.label_nome.setText(_translate("MainWindow", "Nome:"))
+        self.label_cadastrar.setText(_translate("MainWindow", "Cadastrar"))
+        self.label_endereco.setText(_translate("MainWindow", "Endereço:"))
+        self.label_cpf.setText(_translate("MainWindow", "CPF:"))
+        self.label_nascimento.setText(_translate("MainWindow", "Nascimento:"))
+        self.label_buscar.setText(_translate("MainWindow", "Buscar"))
+        self.botao_buscar.setText(_translate("MainWindow", "Buscar"))
+        self.label_cpf_2.setText(_translate("MainWindow", "CPF:"))
+        self.label_nome_2.setText(_translate("MainWindow", "Nome:"))
+        self.label_endereco_2.setText(_translate("MainWindow", "Endereço:"))
+        self.label_nascimento_2.setText(_translate("MainWindow", "Nascimento:"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
